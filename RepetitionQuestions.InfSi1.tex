@@ -1,0 +1,236 @@
+%Pakete;
+%A4, Report, 12pt
+\documentclass[ngerman,a4paper,12pt]{scrreprt}
+\usepackage[a4paper, right=20mm, left=20mm,top=20mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+
+%Papierausrichtungen
+\usepackage{pdflscape}
+\usepackage{lscape}
+
+%Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+%quellcode
+\usepackage{listings}
+
+%tabellen
+\usepackage{tabularx}
+
+%listen und aufzählungen
+\usepackage{paralist}
+
+%farben
+\usepackage[svgnames,table,hyperref]{xcolor}
+
+%symbole
+\usepackage{latexsym,textcomp}
+
+%font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%Abkürzungsverzeichnisse
+\usepackage[printonlyused]{acronym}
+
+%Bilder
+\usepackage{graphicx} %Bilder
+\usepackage{float}	  %"Floating" Objects, Bilder, Tabellen...
+\usepackage[space]{grffile} %Leerzechen Problem bei includegraphics
+\usepackage{wallpaper} %Seitenhintergrund setzen
+\usepackage{transparent} %Transparenz
+
+%for
+\usepackage{forloop}
+\usepackage{ifthen}
+
+%Dokumenteigenschaften
+\title{Repetitionsfragen}
+\author{Tobias Blaser}
+\date{\today{}, Rapperswil}
+
+
+%Kopf- /Fusszeile
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\renewcommand{\headrulewidth}{0pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+%Kopf-/ Fusszeile auf chapter page
+\fancypagestyle{plain} {
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\renewcommand{\headrulewidth}{0pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+}
+
+\usepackage{changepage}
+
+% Abkürzungen für Kapitel, Titel und Listen
+\input{../shortcuts}
+
+%links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
+\usepackage[bookmarks=true,
+bookmarksopen=true,
+bookmarksnumbered=true,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+pagecolor=black,
+urlcolor=black
+]{hyperref} % Paket muss unbedingt als letzes eingebunden werden!
+
+\begin{document}
+
+% Inhaltsverzeichnis
+\tableofcontents
+\clearpage
+
+\ch{W1}
+\ol
+	\li
+\olS
+
+
+\ch{W2}
+\olR
+	\li
+\olS
+
+
+\ch{W3}
+\olR
+	\li
+\olS
+
+
+\ch{Kryptographie Basics}
+\olR
+	\li Setzen Sie Steganographie, Codierung, Substitution, Chiffrierung, Kryptographie und Transposition miteinander in Verbindung. Zeichnen Sie ein MindMap und erklären Sie die Begriffe.
+	\li Was ist Kryptoanalyse? Welche drei ``Stufen'' gibt es?
+	\li Wann ist ein kryptographischer Algorithmus sicher und wovon hängt die Sicherheit ab?
+	\li Wie kann ein Angreifer bei einer Brute-Force Attacke auf einen Ciphertext feststellen, dass die Attacke erfolgreich war?
+	\li Was ist der Informationsgehalt eines Zeichens und wie ermitteln Sie ihn?
+	\li Was ist Entropie und wie ermitteln Sie sie? Wann ist die Entropie eines Zeichens maximal?
+	\li Wie ermitteln Sie die Redundanz?
+	\li Berechnen Sie den Informationsgehalt eines einzelnen Symbols (Anzahl benötigte
+Zeichen für 128Bit Entropie):
+		\ol
+			\li Digits (0..9)
+			\li Hexadecimal (0..F)
+			\li Base64 (A..Z, a..z, 0..9, v/, +): 64 symbols
+			\li Alphabet (A..Z): 25 characters
+			\li Alphabet \& Digits (A..Z, 0..9): 35 symbols
+		\olE
+	\li Was ist eine symetrische Verschlüsselung?
+	\li Was ist das Transpositionsverfahren? Was das Substitutionsverfahren? Wie funktioniert die Cäsar Verschlüsslung?
+	\li Wie funktioniert Vigenère? Wie funktioniert Substitution mit polyalphabethischen Schlüsseln?
+	\li Was ist One Time Pad? Warum ist es abslut sicher? Welche Nachteile/Schwierigkeiten hat OTP?	
+\olS
+
+
+\ch{Verschlüsselungsverfahren}
+\olR
+	\li Wie funtkionieren symetrische Schlüsselsysteme? Wie viele Schlüssel werden bei n Kommunikationspartnern benötigt?
+	\li Wie funktionieren asymetrische Verfahren? Wie viele Schlüssel werden hier benötigt für n Kommunikationspartner?
+	\li Was ist ein Hybrid Verschlüsselungssystem? Erklären Sie es am Beispiel TLS/SSL.
+	\li Was sind Stream Cipher Systeme? Wie funktionieren Sie?
+	\li Was passiert bei einem Stream Cipher System, wenn ein Bit verlorengeht?
+	\li Wie funktioniert WEP? Vor- / Nachteile?
+	\li Was sind Block Cipher Systeme und wie funktionieren Sie?
+	\li Nennen Sie die Unterschiede zwischen ECB, CBC, CTR und CFB.
+	\li Erklären Sie DES, 3DES und AES.
+	\li Was ist eine mathematische Einwegfunktion und wie kann sie für asymetrische Verfahren verwendet werden?
+	\li Erklären Sie RSA, ECC und DH.
+	\li Wie hängen Schlüssellänge und Sicherheit zusammen?
+\olS
+
+
+\ch{Digitale Signaturen}
+\olR
+	\li Was ist ein Hash? Nennen Sie 3 Hauptanwendungsgebiete.
+	\li Wie funktioniert MD5 / SHA1? Wie entsteht der Hash?
+	\li Wie sieht eine Hash Attacke aus?
+	\li Nennen Sie die Eigenschaften von Kryptographischen Hash Funktionen.
+	\li Warum wird heute SHA anstelle MD5 empfohlen?
+	\li Was sind ein Keyed Hash und was ist eine digitale Signatur?
+	\li Wie kann ich sichergehen, dass ein Schloss/Schlüssel wirklich vom erwünschten Absender stammt?
+	\li Erklären Sie den "Digital Signature Standard" DSS.
+	\li Erklären Sie die Unterschiede zwischen "Public Key Signature" und "Public Key Encryption".
+	\li Was ist eine Echtheitserklärung? Nennen Sie vier Eigenschaften, die eine Unterschrift auf einem Dokument aufweisen sollte.
+	\li Was ist eine elektrische Signatur? Erklären Sie einfache, "fortgeschrittene und wualifizierte elektronische Signatur.
+	\li Wer darf in der Schweiz Zertifikate ausgeben?
+	\li Welchen rechtlichen markanten Unterschied gibt es zwischen der Hanunterschrift und der digitalen Unterschrift?
+\olS
+
+\ch{Zertifikate}
+\olR
+	\li Wie kann bei einem Public Key System ein man-in-the-middle Attack stattfinden?
+	\li Erklären Sie, wie die Eigentümer Identifizierung und Key Signierung bei Public Key System funktioniert.
+	\li Was ist das "Web of Trust"?
+	\li Machen Sie ein Paar Beispiele für PKI basierte Applikationen.
+	\li Skizzieren Sie die Public Key Infrastructure  mit Echtheitsüberprüfung.
+	\li Erklären Sie die vier Zertifikatklassen
+	\li Wie funktioniert die Vertrauenshirarchie bei den Zertifikatstellen?
+	\li Erklären Sie, wie ein Zertifikat nach ISO 9594-8 aufgebaut ist, welche Elemente es enthält und wie es vor Veränderung geschützt wird.
+	\li Was sind Zertifikat Extensions? Wozu werden Sie verwendet? Erklären Sie die keyUsage Extension.
+	\li Was ist eine path length constraint?
+	\li Was ist der CA flag?
+\olS
+
+\ch{Sichere E-mail}
+\olR
+	\li Nennen Sie je zwei Vorteile von E-mail Signierung und E-mail Verschlüsselung.
+	\li Was sind boundaries in E-mails, und was bedeutet der Content-Type "multipart/mixed"?
+	\li Wie wird die Signatur in einer E-mail eingebettet?
+	\li Was ist ASN.1?
+	\li Erklären Sie, wie die hybride verschlüsselung bei E-mail abläut.
+	\li Wo liegen jeweils die Vorteile, wenn Sie die Mail vor dem Verschlüsseln signieren und umgekehrt?
+	\li Machen Sie ein vollständiges Beispiel für das Signieren einer E-mail und das Überprüfen der Signatur durch den Empfänger. Skizzieren sie, was dabei abläuft.
+	\li Machen Sie ein vollständiges Beispiel für das verschlüsseln einer E-mail und das entschlüsseln durch den Empfänger. Skizzieren sie, was dabei abläuft.
+	\li Erklären Sie die Zusammensetzung des PKCS\#12-Containers. Wie wird der Inhalt gesichert?
+\olS
+
+
+\ch{TLS}
+\se{TLS Grundlagen}
+\olR
+	\li Welche OSI Layer betreffen TLS und IPsec? Welche zusätzlichen Elemente bringt TLS in den OSI Stack ein? Wo wird der TLS Layer eingeschoben?
+	\li Wie funktioniert das TLS Record Protool? Welche Dienste stellt es zur Verfügung?
+	\li Erklären Sie die TLS Record Structure.
+	\li Zeichnen Sie eine Skizze, wie das TLS Handshake Protocol abläuft.
+	\li Wie wird der "Finished" abgesichert?
+	\li Wie funktioniert TLS mit Diffie Hellman Key Establishment?
+	\li Erklären Sie, wie eine TLS Session wieder aufgenommen werden kann ohne neue Keys zu berechnen
+\olS
+
+\se{TLS Vulnerabilities}
+\olR
+	\li Wie funktionieren die BEAST und die CRIME Angriffsmethoden bei TLS?
+	\li Warum sollte HTTP Basic Acces Authentication ohne TLS Tunnel nie verwendet werden?
+	\li Wie funktioniert HTTP Digest Access Authentication?
+	\li Erklären Sie, wie EAP-Based Authentication und Zugriffskontrolle funktionieren.
+	\li Wie ist das EAP Protokoll aufgebaut?
+	\li Erklären Sie, wie EAP-MD5 Authentication Protection by EAP-TTLS abläuft. Wozu dient das More Fragments Flag?
+\olS
+
+
+
+
+
+
+
+
+
+\end{document}
